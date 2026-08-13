@@ -68,6 +68,7 @@
         <ul class="nav-list">
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="gpu-kernels.html" class="nav-link" style="color: oklch(var(--accent-primary-dark-raw)); font-weight: 700;">⚡ GPU Kernels</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#publications" class="nav-link">Publications</a></li>
@@ -284,6 +285,26 @@
         <h2 class="section-title">Selected Projects</h2>
         
         <div class="projects-grid grid-3">
+          <!-- Featured GPU Kernel Project -->
+          <div class="project-card glass-card" style="border: 1px solid oklch(var(--accent-primary-dark-raw) / 0.5); background: linear-gradient(135deg, rgba(var(--card-bg-dark-raw), 0.9), rgba(var(--accent-primary-dark-raw), 0.05));">
+            <div class="project-icon">⚡</div>
+            <h3 class="project-name" style="color: oklch(var(--accent-primary-dark-raw));">Triton GPU Kernel Suite</h3>
+            <p class="project-description">
+              High-throughput custom Triton kernels targeting 3D medical volume loss functions and row-wise activations. Features a <strong>Fused Soft-Dice Loss</strong> delivering <strong>3.09x speedup</strong> via SRAM caching, 2D block grid partitioning, and lock-free <code>tl.atomic_add</code> reductions.
+            </p>
+            <div class="project-tags">
+              <span>Triton</span>
+              <span>CUDA</span>
+              <span>PyTorch ATen</span>
+              <span>Kernel Fusion</span>
+              <span>A100 Benchmark</span>
+            </div>
+            <div style="margin-top: 16px; display: flex; gap: 12px;">
+              <a href="gpu-kernels.html" class="btn primary-btn" style="padding: 6px 14px; font-size: 0.82rem;">Live Interactive Showcase →</a>
+              <a href="https://github.com/vennyvirtuoso/triton-kernels" target="_blank" class="btn secondary-btn" style="padding: 6px 14px; font-size: 0.82rem;">GitHub Repo</a>
+            </div>
+          </div>
+
           <!-- Project 1 -->
           <div class="project-card glass-card">
             <div class="project-icon">🔍</div>
@@ -474,16 +495,16 @@
         <div class="achievements-grid grid-3">
           <!-- Achievement 1 -->
           <div class="achievement-card glass-card">
-            <div class="ach-num">AIR 515</div>
-            <h3 class="ach-title">GATE CS Rank</h3>
-            <p class="ach-desc">Secured All India Rank 515 in Graduate Aptitude Test in Engineering for Computer Science.</p>
+            <div class="ach-num">99.59%</div>
+            <h3 class="ach-title">GATE CSE Percentile</h3>
+            <p class="ach-desc">Secured 99.59 Percentile in Graduate Aptitude Test in Engineering for Computer Science.</p>
           </div>
 
           <!-- Achievement 2 -->
           <div class="achievement-card glass-card">
-            <div class="ach-num">AIR 568</div>
-            <h3 class="ach-title">GATE DA Rank</h3>
-            <p class="ach-desc">Secured All India Rank 568 in Graduate Aptitude Test in Engineering for Data Science & AI.</p>
+            <div class="ach-num">98.55%</div>
+            <h3 class="ach-title">GATE DA Percentile</h3>
+            <p class="ach-desc">Secured 98.55 Percentile in Graduate Aptitude Test in Engineering for Data Science & AI.</p>
           </div>
 
           <!-- Achievement 3 -->
