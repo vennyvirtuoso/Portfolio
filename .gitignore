@@ -22,3 +22,12 @@ yarn-error.log*
 
 # Local log files
 *.log
+
+# Source draft resumes & photos
+document*.pdf
+document (*).pdf
+IMG_*.PNG
+IMG_*.png
+assets/*_old.pdf
+
+

@@ -1,640 +1,894 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="classic-dark" class="view-mode-gui">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vijendra Kumar | AI & NLP Researcher & Engineer</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Portfolio of Vijendra Kumar, Computer Science & Engineering Post Graduate at IIT Bombay. Specializing in AI, NLP, Deep Learning, RAG, and Optimization.">
-  <meta name="keywords" content="Vijendra Kumar, IIT Bombay, AI Researcher, NLP Engineer, RAG, Machine Learning, Deep Learning, Computer Science, Portfolio">
-  <meta name="author" content="Vijendra Kumar">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Vijendra Kumar | AI & NLP Researcher & Engineer">
-  <meta property="og:description" content="Portfolio of Vijendra Kumar, Computer Science & Engineering Post Graduate at IIT Bombay. Specializing in AI, NLP, Deep Learning, RAG, and Optimization.">
-  <meta property="og:image" content="./assets/hero_illustration.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Vijendra Kumar | AI & NLP Researcher & Engineer">
-  <meta property="twitter:description" content="Portfolio of Vijendra Kumar, Computer Science & Engineering Post Graduate at IIT Bombay. Specializing in AI, NLP, Deep Learning, RAG, and Optimization.">
-  <meta property="twitter:image" content="./assets/hero_illustration.png">
-
-  <!-- Fonts -->
+  <title>Vijendra Kumar Vaishya · AI Researcher & Systems Engineer</title>
+  <meta name="description"
+    content="Portfolio of Vijendra Kumar Vaishya — M.S. by Research in CSE at IIT Bombay. Research in Mamba SSMs, Intersectional Bias Detection, Clinical RAG, and Bare-Metal C++17 NEON SIMD.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Style Sheets -->
-  <link rel="stylesheet" href="./index.css">
-
-  <!-- Theme Detection Script (MANDATORY to prevent FOUC) -->
-  <meta name="color-scheme" content="light dark">
-  <script>
-    {
-      const colorScheme = localStorage.getItem("color-scheme");
-      if (colorScheme) {
-        document.querySelector('meta[name="color-scheme"]').content = colorScheme;
-      }
-    }
-  </script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 </head>
-<body>
-  <!-- Background Aura Decors -->
-  <div class="glow-orb glow-orb-1" aria-hidden="true"></div>
-  <div class="glow-orb glow-orb-2" aria-hidden="true"></div>
 
-  <!-- Header & Navigation -->
-  <header class="main-header" id="header">
+<body>
+
+  <!-- Ambient Background Layer -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- CRT overlay for Terminal Mode -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Command Palette (Ctrl+P) -->
+  <div id="cmd-palette-overlay" class="cmd-palette-overlay" aria-hidden="true" role="dialog"
+    aria-label="Command palette">
+    <div class="cmd-palette">
+      <div class="cmd-palette-search">
+        <span class="cmd-palette-icon">⌘</span>
+        <input type="text" id="cmd-palette-input" placeholder="Search commands..." autocomplete="off" spellcheck="false"
+          aria-label="Search commands">
+        <kbd class="kbd-close">Esc</kbd>
+      </div>
+      <ul class="cmd-palette-list" id="cmd-palette-list" role="listbox"></ul>
+      <div class="cmd-palette-footer">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> run command</span>
+        <span><kbd>Esc</kbd> close</span>
+        <span class="palette-shortcut-hint"><kbd>Ctrl+P</kbd></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple & Classy Header Navigation -->
+  <header class="top-nav" aria-label="Main Navigation">
     <div class="nav-container">
-      <a href="#" class="logo">
-        <span class="logo-text">VK</span>
-        <span class="logo-dot">.</span>
+      <a href="#about" class="nav-brand">
+        <span class="brand-name">Vijendra Kumar Vaishya</span>
+        <span class="brand-tag">IIT BOMBAY</span>
       </a>
 
-      <!-- Mobile Menu Button -->
-      <button class="mobile-menu-toggle" aria-label="Toggle Navigation Menu" aria-controls="main-nav" aria-expanded="false">
-        <svg class="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path class="line-1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16" />
-          <path class="line-2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16" />
-          <path class="line-3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16" />
-        </svg>
-      </button>
-
-      <!-- Desktop Nav & Theme Toggle -->
-      <nav class="nav-menu" id="main-nav">
-        <ul class="nav-list">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="gpu-kernels.html" class="nav-link" style="color: oklch(var(--accent-primary-dark-raw)); font-weight: 700;">⚡ GPU Kernels</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#publications" class="nav-link">Publications</a></li>
-          <li><a href="#achievements" class="nav-link">Achievements</a></li>
-          <li><a href="#contact" class="nav-link nav-btn-contact">Get In Touch</a></li>
-        </ul>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#systems">Systems</a>
+        <a href="#terminal">Terminal</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <!-- Theme Switcher Button -->
-      <button class="theme-toggle" id="theme-btn" aria-label="Toggle light/dark theme" title="Toggle color scheme">
-        <!-- Sun Icon -->
-        <svg class="sun-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-        </svg>
-        <!-- Moon Icon -->
-        <svg class="moon-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-      </button>
+      <div class="nav-actions">
+        <!-- Direct One-Click Theme Switcher Chips -->
+        <div class="theme-chips-group" role="radiogroup" aria-label="Color Themes">
+          <button type="button" class="theme-chip active" data-theme="classic-dark" title="Slate Dark Theme">
+            <span class="swatch swatch-slate"></span>
+            <span>Slate</span>
+          </button>
+          <button type="button" class="theme-chip" data-theme="classic-light" title="Paper Light Theme">
+            <span class="swatch swatch-paper"></span>
+            <span>Paper</span>
+          </button>
+          <button type="button" class="theme-chip" data-theme="midnight-navy" title="Midnight Navy Theme">
+            <span class="swatch swatch-navy"></span>
+            <span>Navy</span>
+          </button>
+          <button type="button" class="theme-chip" data-theme="emerald-dark" title="Emerald Dark Theme">
+            <span class="swatch swatch-emerald"></span>
+            <span>Emerald</span>
+          </button>
+        </div>
+
+        <a href="./vijendra_resume.pdf" download="Vijendra_Kumar_Resume.pdf" class="btn-cv"
+          title="Download Official PDF Resume">
+          <span>CV ↗</span>
+        </a>
+
+        <!-- View Mode Switcher Capsule -->
+        <div class="view-switch-capsule" role="radiogroup" aria-label="View Switcher">
+          <button type="button" id="btn-mode-gui" class="view-pill-btn active" data-view="gui"
+            title="Switch to Web View">
+            <span>Web</span>
+          </button>
+          <button type="button" id="btn-mode-terminal" class="view-pill-btn" data-view="terminal"
+            title="Switch to Fullscreen Terminal View">
+            <span>Terminal</span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-      <div class="hero-container grid-2">
-        <div class="hero-content">
-          <div class="tagline-pill">
-            <span class="pulse-indicator"></span>
-            IIT Bombay CSE Post Graduate
+
+  <!-- ========================================================================= -->
+  <!-- 1. CLEAN & CLASSY WEB PORTFOLIO                                           -->
+  <!-- ========================================================================= -->
+  <main id="gui-portfolio" class="gui-content">
+
+    <!-- HERO SECTION -->
+    <section id="about" class="section hero-section">
+      <div class="section-container">
+
+        <div class="hero-top-meta">
+          <span class="hero-inst-badge">M.S. by Research Candidate · Roll: 24M2133</span>
+          <span class="hero-lab">CFILT Lab, IIT Bombay · Advised by Prof. Pushpak Bhattacharyya</span>
+        </div>
+
+        <h1 class="hero-heading">
+          Vijendra Kumar Vaishya
+        </h1>
+        <p class="hero-tagline">
+          AI Researcher &amp; Systems Engineer · Computer Science &amp; Engineering, IIT Bombay
+        </p>
+
+        <p class="hero-bio">
+          I conduct research at the intersection of deep learning theory and low-level computer systems.
+          My graduate work at IIT Bombay focuses on <strong>linear-time Mamba State-Space Models (SSMs)</strong> for 3D
+          medical sequences,
+          <strong>contrastive intersectional bias detection</strong> in LLM representations, <strong>clinical ontology
+            RAG architectures</strong>,
+          and <strong>bare-metal C++17 ARM NEON SIMD acceleration</strong>.
+        </p>
+
+        <!-- Understated, Classy Spec Sheet Metrics -->
+        <div class="metric-strip">
+          <div class="metric-item">
+            <div class="metric-num">8.9 <span class="metric-unit">/ 10</span></div>
+            <div class="metric-label">M.S. CPI @ IIT Bombay</div>
+            <div class="metric-sub">CSE Department · 28 Core Credits</div>
           </div>
-          <h1 class="hero-title">Vijendra Kumar</h1>
-          <p class="hero-subtitle">AI / NLP Researcher & Deep Learning Engineer</p>
-          <p class="hero-desc">
-            Passionate about building state-of-the-art NLP systems, specialized RAG frameworks, and lightweight models. Currently developing cutting-edge models for Speech Translation, Medical Segmentation, and Intersectional Bias Evaluation at IIT Bombay.
-          </p>
-          <div class="hero-actions">
-            <a href="./vijendra_resume.pdf" class="btn primary-btn" download="Vijendra_Kumar_Resume.pdf">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Download Resume
-            </a>
-            <a href="#contact" class="btn secondary-btn">Contact Me</a>
+          <div class="metric-item">
+            <div class="metric-num">84<span class="metric-unit">×</span></div>
+            <div class="metric-label">NEON SIMD Speedup</div>
+            <div class="metric-sub">Bare-Metal C++17 SwiGLU FFN</div>
           </div>
-          <div class="hero-socials">
-            <a href="https://www.linkedin.com/in/vennyvirtuoso/" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </a>
-            <a href="mailto:vijendra9753@gmail.com" aria-label="Email Address">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </a>
+          <div class="metric-item">
+            <div class="metric-num">0.7801</div>
+            <div class="metric-label">Dice Score (DSCA)</div>
+            <div class="metric-sub">MIST Mamba SSM (WACV '27)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-num">+18</div>
+            <div class="metric-label">Jaccard Points Boost</div>
+            <div class="metric-sub">BiasRetriever (EACL '27)</div>
           </div>
         </div>
-        <div class="hero-graphic" aria-hidden="true">
-          <div class="graphic-canvas">
-            <img src="./assets/hero_illustration.png" alt="AI Neural Network Graph Art" class="hero-img">
-            <div class="floating-tech-card ft-1">
-              <span class="tech-icon">⚡</span>
-              <span>RAG Systems</span>
-            </div>
-            <div class="floating-tech-card ft-2">
-              <span class="tech-icon">🧠</span>
-              <span>Mamba / SSMs</span>
-            </div>
-            <div class="floating-tech-card ft-3">
-              <span class="tech-icon">✨</span>
-              <span>LLM Fine-Tuning</span>
-            </div>
-          </div>
+
+        <!-- Action Links -->
+        <div class="hero-cta-row">
+          <a href="./vijendra_resume.pdf" download="Vijendra_Kumar_Resume.pdf" class="btn-primary">
+            Download Resume (PDF)
+          </a>
+          <a href="#research" class="btn-secondary">
+            View Research Papers
+          </a>
+          <a href="#terminal" class="btn-secondary">
+            ⚡ Interactive Terminal ↓
+          </a>
         </div>
-      </div>
-      <div class="scroll-indicator">
-        <a href="#about" aria-label="Scroll to about section">
-          <span class="mouse">
-            <span class="wheel"></span>
-          </span>
-        </a>
+
       </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
+
+    <!-- RESEARCH & PUBLICATIONS SECTION -->
+    <section id="research" class="section">
       <div class="section-container">
-        <span class="section-tag">About Me</span>
-        <h2 class="section-title">Academic & Technical Profile</h2>
-        <div class="about-grid grid-2">
-          <div class="about-text">
-            <p class="paragraph-lead">
-              I am a Post Graduate student in Computer Science & Engineering at the <strong>Indian Institute of Technology Bombay (IIT Bombay)</strong> (2024–2027) with a CPI of 8.9. My research and academic focus centers around advanced Artificial Intelligence, Natural Language Processing, and deep learning model optimization.
+        <div class="section-header">
+          <h2 class="section-title">Research &amp; Thesis Publications</h2>
+          <span class="section-divider"></span>
+        </div>
+
+        <div class="entries-list">
+
+          <!-- Paper 1 -->
+          <article class="entry-card">
+            <div class="entry-header">
+              <div class="entry-title-wrap">
+                <span class="entry-badge badge-review">EACL 2027 (Under Review)</span>
+                <h3 class="entry-title">Beyond Single-Axis Fairness: Learning to Detect Intersectional Biases</h3>
+              </div>
+              <div class="entry-authors"><strong>Vijendra Kumar Vaishya</strong>, Nihar Ranjan Sahoo, Pushpak
+                Bhattacharyya</div>
+            </div>
+            <ul class="entry-bullets">
+              <li>Built a retrieval-based framework for intersectional bias detection, recast as retrieval over
+                classification.</li>
+              <li>Introduced <strong>BiasRetriever</strong>, a contrastively trained retriever using canonical
+                single-axis stereotype embeddings.</li>
+              <li>Boosted <strong>Jaccard score by 18 points</strong> over the strongest LLM baseline across disjoint
+                corpora.</li>
+            </ul>
+            <div class="entry-tags">
+              <span>Intersectional Bias</span>
+              <span>Contrastive Retrieval</span>
+              <span>BiasRetriever</span>
+              <span>Representation Space</span>
+            </div>
+          </article>
+
+          <!-- Paper 2 -->
+          <article class="entry-card">
+            <div class="entry-header">
+              <div class="entry-title-wrap">
+                <span class="entry-badge badge-review">WACV 2027 (Under Review)</span>
+                <h3 class="entry-title">MIST: Mamba-based Integrated Spatio-Temporal Model for Intracranial Vessel
+                  Segmentation in DSA Sequences</h3>
+              </div>
+              <div class="entry-authors"><strong>Vijendra Kumar Vaishya</strong>, Viraj Singh Gaur, Amruth Sagar, Swapna
+                Sourav Rout, Kshitij Sharad Jadhav</div>
+            </div>
+            <ul class="entry-bullets">
+              <li>Developed a dual-branch spatio-temporal architecture for DSA vessel segmentation using Mamba-based
+                State-Space Models (SSMs).</li>
+              <li>Designed a Cross-Attention Fusion (<strong>CrossSTF</strong>) module integrating MinIP-derived spatial
+                priors with multi-scale temporal features, refined using topology-preserving deep supervision.</li>
+              <li>Achieved a <strong>Dice score of 0.7801</strong> on the independent DSCA benchmark without any
+                retraining or fine-tuning, demonstrating robust cross-dataset generalization.</li>
+            </ul>
+            <div class="entry-tags">
+              <span>Mamba SSMs</span>
+              <span>CrossSTF Module</span>
+              <span>3D DSA Sequences</span>
+              <span>Dice: 0.7801</span>
+            </div>
+          </article>
+
+          <!-- Paper 3: Healthcare Chatbot -->
+          <article class="entry-card">
+            <div class="entry-header">
+              <div class="entry-title-wrap">
+                <span class="entry-badge badge-ongoing">KCDH Lab, IIT Bombay · In collab with PHFI</span>
+                <h3 class="entry-title">Ontology-Aware Persona-based Chatbot for Tobacco Cessation</h3>
+              </div>
+              <div class="entry-authors">Public Health Foundation of India (PHFI) &amp; Koita Centre for Digital Health
+                (KCDH), IIT Bombay</div>
+            </div>
+            <ul class="entry-bullets">
+              <li>Engineered a 2-stage conversational architecture utilizing a decision-tree knowledge graph to
+                dynamically classify patient readiness across 5 cessation stages and assess Fagerström dependence
+                severity.</li>
+              <li>Built a <strong>6,900-concept clinical ontology with 33k+ edges</strong> and designed an
+                ontology-aware text segmenter, reducing broken mid-sentence chunk splits from <strong>84.6% to
+                  5.6%</strong> compared to fixed-size chunking.</li>
+              <li>Achieved <strong>58% Recall@3</strong> (29/50) and <strong>0.497 MRR</strong> using ontology-aware
+                chunking across 50 clinical queries, outperforming baseline semantic approaches.</li>
+            </ul>
+            <div class="entry-tags">
+              <span>Clinical Ontology</span>
+              <span>6,900 Concepts</span>
+              <span>33k+ Edges</span>
+              <span>58% Recall@3</span>
+              <span>0.497 MRR</span>
+            </div>
+          </article>
+
+          <!-- Project 4: MeitY Bhashini -->
+          <article class="entry-card">
+            <div class="entry-header">
+              <div class="entry-title-wrap">
+                <span class="entry-badge badge-ongoing">MeitY, Govt. of India · NLTM-Bhashini</span>
+                <h3 class="entry-title">Bhashini Speech-to-Speech Machine Translation (SSMT)</h3>
+              </div>
+              <div class="entry-authors">Advisor: Prof. Pushpak Bhattacharyya · CFILT Lab, IIT Bombay</div>
+            </div>
+            <ul class="entry-bullets">
+              <li>Architected a full-stack annotation platform and transformer labeling model for Marathi Multi-Word
+                Expression detection on 4,260 manual annotations to accelerate low-resource language corpus curation.
+              </li>
+              <li>Engineered an automated MLOps retraining engine, expanding dataset size from <strong>4,260 to 13,900+
+                  annotations</strong>.</li>
+              <li>Achieved <strong>85.05% test F1</strong> and <strong>90.76% Complex Predicate detection</strong>,
+                surpassing baseline performance.</li>
+            </ul>
+            <div class="entry-tags">
+              <span>85.05% Test F1</span>
+              <span>90.76% Complex Predicates</span>
+              <span>13.9k+ Annotations</span>
+              <span>Active Learning MLOps</span>
+            </div>
+          </article>
+
+          <!-- Pre-print -->
+          <article class="entry-card">
+            <div class="entry-header">
+              <div class="entry-title-wrap">
+                <span class="entry-badge badge-preprint">Pre-print</span>
+                <h3 class="entry-title">Subset Selection for Fine-Tuning: A Utility-Diversity Balanced Approach for
+                  Mathematical Domain Adaptation</h3>
+              </div>
+              <div class="entry-authors">Kotecha M, <strong>Vaishya VK</strong>, Gautam S, Racha S</div>
+            </div>
+            <p class="entry-desc">
+              Proposed a utility-diversity subset selection framework tailored for mathematical domain adaptation in
+              large language models.
             </p>
-            <p>
-              I collaborate with leading research centers, including the <strong>Koita Centre for Digital Health (KCDH) Lab</strong> and MeitY (Ministry of Electronics and Information Technology, Govt. of India). I design robust RAG systems, develop parameter-efficient state-space models for 3D medical sequences, and build retriever-based evaluation frameworks to diagnose intersectional bias in Large Language Models.
-            </p>
-            <p>
-              With strong competencies in PyTorch, FAISS, Hugging Face, CUDA, and optimization techniques, I thrive at the intersection of deep learning theory and software engineering.
-            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SYSTEMS & SELF PROJECTS SECTION -->
+    <section id="systems" class="section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Systems &amp; Self Projects</h2>
+          <span class="section-divider"></span>
+        </div>
+
+        <div class="entries-list">
+
+          <!-- Systems Project 1 -->
+          <article class="entry-card highlight-card">
+            <div class="entry-header">
+              <div class="entry-title-wrap">
+                <span class="entry-badge badge-sys">Bare-Metal C++17 · Apple Silicon / ARM64</span>
+                <h3 class="entry-title">Fused SwiGLU / Transformer FFN Inference Engine</h3>
+              </div>
+            </div>
+            <ul class="entry-bullets">
+              <li>Built bare-metal C++17 engine for LLaMA/Mistral FFN with a 5-stage optimization ladder to INT8.</li>
+              <li>Hand-wrote 8-wide ARM NEON microkernel, reaching <strong>37–84x speedup</strong> over scalar baseline.
+              </li>
+              <li>Applied INT8 quantization achieving <strong>41.7 GFLOP/s throughput</strong> at <strong>&lt;0.6% NRMSE
+                  error</strong>.</li>
+              <li>Fused activation and quantization ops in registers, exploiting P-/E-core scheduling for
+                <strong>1.43–1.48x further gain</strong>.</li>
+            </ul>
+
+            <!-- Clean Microkernel Benchmark Runner -->
+            <div class="benchmark-container">
+              <div class="bench-head">
+                <span class="bench-label">SwiGLU Microkernel Throughput Ladder</span>
+                <button type="button" id="gui-rerun-bench" class="bench-trigger-btn">
+                  <span>⚡ Run Microkernel Simulation</span>
+                </button>
+              </div>
+              <div class="bench-bars">
+                <div class="bench-row">
+                  <div class="bench-info">
+                    <span>1. Baseline Scalar C++ (O3)</span>
+                    <span>0.50 GFLOP/s (1.0×)</span>
+                  </div>
+                  <div class="track">
+                    <div class="fill" style="width: 1.2%;"></div>
+                  </div>
+                </div>
+                <div class="bench-row">
+                  <div class="bench-info">
+                    <span>2. Auto-Vectorized Clang NEON</span>
+                    <span>18.6 GFLOP/s (37.2×)</span>
+                  </div>
+                  <div class="track">
+                    <div class="fill" style="width: 44%;"></div>
+                  </div>
+                </div>
+                <div class="bench-row">
+                  <div class="bench-info">
+                    <span>3. Hand-Written 8-Wide NEON Microkernel</span>
+                    <span>36.8 GFLOP/s (73.6×)</span>
+                  </div>
+                  <div class="track">
+                    <div class="fill" style="width: 87%;"></div>
+                  </div>
+                </div>
+                <div class="bench-row accent-row">
+                  <div class="bench-info">
+                    <span><strong>4. Fully Register-Fused NEON + INT8 Quant (Ours)</strong></span>
+                    <span><strong>41.7 GFLOP/s (84.2× Speedup)</strong></span>
+                  </div>
+                  <div class="track">
+                    <div class="fill fill-highlight" style="width: 100%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="entry-tags">
+              <span>C++17</span>
+              <span>ARM NEON SIMD</span>
+              <span>Register Fusion</span>
+              <span>INT8 Quantization</span>
+              <span>41.7 GFLOP/s</span>
+            </div>
+          </article>
+
+          <!-- Systems Project 2 -->
+          <article class="entry-card">
+            <div class="entry-header">
+              <div class="entry-title-wrap">
+                <span class="entry-badge badge-ml">Machine Learning Theory · NumPy</span>
+                <h3 class="entry-title">Custom Gaussian Process &amp; Bayesian Optimization Engine</h3>
+              </div>
+            </div>
+            <ul class="entry-bullets">
+              <li>Implemented from-scratch GP surrogate using Cholesky factorizations ($LL^T$) and log-marginal
+                likelihood optimization.</li>
+              <li>Formulated Expected Improvement (EI) &amp; Probability of Improvement (PI) acquisition functions via
+                analytical Gaussian CDF/PDF, converging in 50 evaluations.</li>
+            </ul>
+            <div class="entry-tags">
+              <span>Cholesky Factorization LL^T</span>
+              <span>Bayesian Optimization</span>
+              <span>EI &amp; PI Acquisition</span>
+              <span>NumPy</span>
+            </div>
+          </article>
+
+          <!-- Systems Project 3 -->
+          <article class="entry-card">
+            <div class="entry-header">
+              <div class="entry-title-wrap">
+                <span class="entry-badge badge-platform">Full-Stack &amp; Scalable Platform</span>
+                <h3 class="entry-title">StoriesbySafarnama — Collaborative Digital Storytelling Platform</h3>
+              </div>
+            </div>
+            <ul class="entry-bullets">
+              <li>Founded and built Safarnama, a private platform for creating and sharing collaborative digital memory
+                timelines.</li>
+              <li>Designed and deployed full-stack architecture for timeline creation and collaborative editing,
+                integrating media uploads and secure sharing. Built scalable backend to manage user data, timeline
+                content, and media assets.</li>
+              <li>Integrated DODO Payments for secure checkout, transaction tracking, and automated refund workflows.
+              </li>
+            </ul>
+            <div class="entry-tags">
+              <span>Full-Stack Platform</span>
+              <span>DODO Payments</span>
+              <span>Timeline Engine</span>
+              <span>Media Backend</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- INTERACTIVE RESEARCH TERMINAL SECTION -->
+    <section id="terminal" class="section terminal-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Interactive Research Terminal</h2>
+          <p class="section-sub">Type commands or click quick pills to inspect publications, C++17 NEON benchmarks, and
+            academic stats in real time.</p>
+          <span class="section-divider"></span>
+        </div>
+
+        <div class="terminal-container">
+          <div class="terminal-window" id="terminal-window">
+
+            <!-- Window Titlebar -->
+            <header class="terminal-titlebar">
+              <div class="titlebar-left">
+                <div class="titlebar-controls">
+                  <span class="control-btn close" id="btn-close" title="Clear Output"></span>
+                  <span class="control-btn minimize" id="btn-minimize" title="Compact"></span>
+                  <span class="control-btn maximize" id="btn-maximize" title="Maximize Window"></span>
+                </div>
+
+                <!-- Terminal Tabs -->
+                <div class="terminal-tabs-row" id="terminal-tabs">
+                  <button type="button" class="term-tab active" data-tab="zsh">
+                    <span class="tab-icon">⚡</span>
+                    <span class="tab-title">main.zsh</span>
+                  </button>
+                  <button type="button" class="term-tab" data-tab="htop" data-cmd="htop">
+                    <span class="tab-icon">📊</span>
+                    <span class="tab-title">htop</span>
+                  </button>
+                  <button type="button" class="term-tab" data-tab="disasm" data-cmd="disasm">
+                    <span class="tab-icon">🔬</span>
+                    <span class="tab-title">disasm</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="titlebar-actions">
+                <button type="button" class="titlebar-icon-btn active" id="sound-toggle" title="Toggle Mechanical Audio"
+                  aria-label="Toggle Sound">
+                  <span id="sound-icon">🔊</span>
+                  <span class="sound-label">Audio: ON</span>
+                </button>
+                <a href="./vijendra_resume.pdf" download="Vijendra_Kumar_Resume.pdf" class="quick-cv-btn"
+                  title="Download Resume PDF">
+                  <span>📄 CV</span>
+                </a>
+              </div>
+            </header>
+
+            <!-- Quick Commands Toolbar -->
+            <nav class="quick-toolbar" aria-label="Terminal Quick Commands">
+              <span class="toolbar-label">COMMANDS:</span>
+              <button type="button" class="cmd-pill" data-cmd="neofetch">neofetch</button>
+              <button type="button" class="cmd-pill" data-cmd="about">about</button>
+              <button type="button" class="cmd-pill" data-cmd="research">research</button>
+              <button type="button" class="cmd-pill" data-cmd="systems">systems</button>
+              <button type="button" class="cmd-pill" data-cmd="benchmark">benchmark</button>
+              <button type="button" class="cmd-pill" data-cmd="projects">projects</button>
+              <button type="button" class="cmd-pill" data-cmd="skills">skills</button>
+              <button type="button" class="cmd-pill" data-cmd="education">education</button>
+              <button type="button" class="cmd-pill" data-cmd="resume">resume</button>
+              <button type="button" class="cmd-pill" data-cmd="contact">contact</button>
+              <button type="button" class="cmd-pill pill-alt" data-cmd="clear">clear</button>
+            </nav>
+
+            <!-- Terminal Output Scrollable Area -->
+            <div class="terminal-body" id="terminal-body">
+              <div id="output-history"></div>
+
+              <!-- Active Command Input Line -->
+              <div class="command-line" id="command-line-container">
+                <span class="prompt-prefix">
+                  <span class="p-user">vijendra</span><span class="p-at">@</span><span class="p-host">iitb</span><span
+                    class="p-colon">:</span><span class="p-dir">~</span><span class="p-sym">$</span>
+                </span>
+                <div class="input-wrapper">
+                  <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus
+                    aria-label="Terminal input command">
+                  <span class="ghost-hint" id="ghost-hint"></span>
+                </div>
+                <button type="button" class="prompt-clear-btn" id="prompt-clear-btn"
+                  title="Clear input (Esc)">×</button>
+              </div>
+            </div>
+
+            <!-- Terminal Status Bar -->
+            <footer class="terminal-statusbar">
+              <div class="status-left">
+                <span class="status-mode">NORMAL</span>
+                <span class="status-branch">main*</span>
+                <span class="status-node">IIT Bombay CSE · CFILT Lab</span>
+                <span class="status-cmds" id="status-cmds-count">14 cmds</span>
+              </div>
+              <div class="status-right">
+                <span class="status-encoding">UTF-8</span>
+                <span class="status-type">zsh 5.9</span>
+                <span class="status-time" id="status-clock">06:00</span>
+                <span class="status-hint">Click pills or type commands</span>
+              </div>
+            </footer>
+
           </div>
-          <div class="education-card glass-card">
-            <h3>Education</h3>
-            <ul class="education-list">
-              <li>
-                <div class="edu-dot"></div>
-                <div class="edu-details">
-                  <span class="edu-duration">2024 — 2027</span>
-                  <h4 class="edu-degree">M.Tech in Computer Science & Engineering</h4>
-                  <span class="edu-institute">Indian Institute of Technology Bombay</span>
-                  <span class="edu-grade">CPI: 8.9 / 10</span>
-                </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GRADUATE COURSE PROJECTS SECTION -->
+    <section id="coursework" class="section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Graduate Coursework Projects @ IIT Bombay</h2>
+          <span class="section-divider"></span>
+        </div>
+
+        <div class="coursework-grid">
+
+          <!-- CS 725 -->
+          <div class="course-card">
+            <div class="course-code">CS 725 · Fall 2024</div>
+            <h3 class="course-proj-title">Medical Image Classification Using Vision Models</h3>
+            <div class="course-inst">Instructor: Prof. Preethi Jyothi</div>
+            <ul class="course-bullets">
+              <li>Built an AutoML optimized Vision-Transformer pipeline for multi-modal medical image classification.
               </li>
-              <li>
-                <div class="edu-dot"></div>
-                <div class="edu-details">
-                  <span class="edu-duration">2020 — 2024</span>
-                  <h4 class="edu-degree">B.Tech in Computer Science & Engineering</h4>
-                  <span class="edu-institute">JEC RGPV Jabalpur</span>
-                  <span class="edu-grade">CPI: 8.01 / 10</span>
-                </div>
-              </li>
-              <li>
-                <div class="edu-dot"></div>
-                <div class="edu-details">
-                  <span class="edu-duration">2019 — 2020</span>
-                  <h4 class="edu-degree">Intermediate / Class XII (HSC)</h4>
-                  <span class="edu-institute">DPS Nigahi (CBSE)</span>
-                  <span class="edu-grade">Percentage: 9.6 / 10 (96%) | 3rd District Rank</span>
-                </div>
-              </li>
+              <li>Exhibited <strong>6.7% average gain in Accuracy and AUC</strong> on multiple MedMNIST datasets over
+                ResNet and DenseNet.</li>
+            </ul>
+          </div>
+
+          <!-- CS 626 -->
+          <div class="course-card">
+            <div class="course-code">CS 626 · Fall 2024</div>
+            <h3 class="course-proj-title">Multi-Hop Question-Answering &amp; Reasoning</h3>
+            <div class="course-inst">Instructor: Prof. Pushpak Bhattacharyya</div>
+            <ul class="course-bullets">
+              <li>Implemented self-prompted chain-of-thought with 6 reasoning paths and studied extensibility to Indic
+                tasks.</li>
+              <li>Infused LightRAG with GPT-4o, increasing <strong>EM by 2% on HotpotQA and 2Wiki</strong> compared to
+                Zero-Shot CoT.</li>
+            </ul>
+          </div>
+
+          <!-- CS 769 -->
+          <div class="course-card">
+            <div class="course-code">CS 769 · Spring 2025</div>
+            <h3 class="course-proj-title">Subset Selection for Fine-Tuning LLMs</h3>
+            <div class="course-inst">Guide: Prof. Ganesh Ramakrishnan</div>
+            <ul class="course-bullets">
+              <li>Proposed a utility-diversity subset selection framework using a Chain-of-Thought metric combining
+                confidence divergence, backtrack frequency, and complexity.</li>
+              <li>Achieved <strong>50% accuracy at 1900 examples</strong>, outperforming DPP and random selection.</li>
+            </ul>
+          </div>
+
+          <!-- CS 772 -->
+          <div class="course-card">
+            <div class="course-code">CS 772 · Fall 2025</div>
+            <h3 class="course-proj-title">Diagram Visual Question Generation (LeJEPA + BLIP-2)</h3>
+            <div class="course-inst">Instructor: Prof. Pushpak Bhattacharyya</div>
+            <ul class="course-bullets">
+              <li>Engineered a two-stage VQG pipeline with LeJEPA pre-training and BLIP-2 Q-Former fine-tuning (+4
+                BLEU-4 points).</li>
+              <li>Surpassed 7.8B SOTA model on DiagramQG in Bert-Score (<strong>93.55 vs 90.98</strong>) with LeJEPA +
+                FLAN-T5-Large (<strong>5.5x parameter reduction</strong>).</li>
+            </ul>
+          </div>
+
+          <!-- CS 791 -->
+          <div class="course-card">
+            <div class="course-code">CS 791 · Fall 2025</div>
+            <h3 class="course-proj-title">Controlled LLM Decoding via Sequential Sampling</h3>
+            <div class="course-inst">Instructor: Prof. Sunita Sarawagi</div>
+            <ul class="course-bullets">
+              <li>Evaluated 7 controlled decoding strategies including SMC and TSMC, achieving a <strong>146% increase
+                  in target rarity reward</strong> over greedy decoding.</li>
+              <li>Demonstrated that SMC achieves <strong>32% higher sample diversity than SIS</strong> while eliminating
+                particle weight degeneracy.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Completed Courses List -->
+        <div class="completed-courses-bar">
+          <span class="bar-title">Completed Graduate Coursework:</span>
+          <span class="course-pill">Foundations of Machine Learning (CS 725)</span>
+          <span class="course-pill">Deep Learning for NLP (CS 772)</span>
+          <span class="course-pill">Speech &amp; NLP and the Web (CS 626)</span>
+          <span class="course-pill">Optimization in ML (CS 769)</span>
+          <span class="course-pill">Probabilistic Foundations of AI (CS 791)</span>
+          <span class="course-pill">Organization of Web Information</span>
+          <span class="course-pill">Software Lab</span>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Academic Record &amp; Education</h2>
+          <span class="section-divider"></span>
+        </div>
+
+        <div class="timeline-wrap">
+
+          <!-- IIT Bombay -->
+          <div class="timeline-row">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-body">
+              <div class="timeline-head-row">
+                <h3 class="timeline-institution">Indian Institute of Technology Bombay (IIT Bombay)</h3>
+                <span class="timeline-period">2024 – 2027</span>
+              </div>
+              <div class="timeline-degree">M.S. by Research in Computer Science and Engineering · <strong>CPI: 8.9 /
+                  10</strong></div>
+              <p class="timeline-note">
+                Roll Number: <strong>24M2133</strong>. Core Coursework Credits: <strong>28</strong> | Total Credits:
+                <strong>58</strong>.<br>
+                Advised by <strong>Prof. Pushpak Bhattacharyya</strong> in the <strong>CFILT Lab</strong>. Research
+                focus: Mamba State-Space Models for 3D spatio-temporal segmentation, intersectional bias evaluation in
+                LLM embedding spaces, clinical ontology RAG architectures, and bare-metal ARM NEON C++17 optimization.
+              </p>
+            </div>
+          </div>
+
+          <!-- JEC -->
+          <div class="timeline-row">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-body">
+              <div class="timeline-head-row">
+                <h3 class="timeline-institution">Jabalpur Engineering College (RGPV)</h3>
+                <span class="timeline-period">2020 – 2024</span>
+              </div>
+              <div class="timeline-degree">Bachelor of Technology (B.Tech) in Information Technology · <strong>CPI: 8.06
+                  / 10</strong></div>
+              <p class="timeline-note">
+                Coursework in Algorithms, Operating Systems, Computer Architecture, Compiler Design, Distributed
+                Computing. Solved <strong>500+ algorithmic problems on LeetCode</strong> across dynamic programming,
+                trees, and graph algorithms.
+              </p>
+            </div>
+          </div>
+
+          <!-- Class 12 -->
+          <div class="timeline-row">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-body">
+              <div class="timeline-head-row">
+                <h3 class="timeline-institution">DPS Nigahi (CBSE Class XII)</h3>
+                <span class="timeline-period">2020</span>
+              </div>
+              <div class="timeline-degree">Senior Secondary Certificate Examination · <strong>96.00% Aggregate</strong>
+              </div>
+              <p class="timeline-note">
+                Secured <strong>3rd Rank across the entire district</strong> with 96.00% aggregate score. Achieved a
+                perfect <strong>100% score in Mathematics</strong>. Qualified the <strong>JEE Advanced</strong>
+                examination.
+              </p>
+            </div>
+          </div>
+
+          <!-- Class 10 -->
+          <div class="timeline-row">
+            <div class="timeline-bullet"></div>
+            <div class="timeline-body">
+              <div class="timeline-head-row">
+                <h3 class="timeline-institution">DPS Nigahi (CBSE Class X)</h3>
+                <span class="timeline-period">2018</span>
+              </div>
+              <div class="timeline-degree">Secondary School Examination · <strong>92.40% Aggregate</strong></div>
+              <p class="timeline-note">
+                Secured 92.40% aggregate in CBSE 10th Board Examinations.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills" class="section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Skills</h2>
+          <span class="section-divider"></span>
+        </div>
+
+        <div class="skills-catalog">
+          <div class="skill-category">
+            <h3 class="skill-cat-title">Programming Languages</h3>
+            <div class="chips">
+              <span class="chip chip-bold">Python</span>
+              <span class="chip chip-bold">C++ (17)</span>
+              <span class="chip">C</span>
+              <span class="chip">Bash Scripting</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="skill-cat-title">ML / DL Frameworks</h3>
+            <div class="chips">
+              <span class="chip chip-bold">PyTorch</span>
+              <span class="chip chip-bold">Hugging Face Transformers</span>
+              <span class="chip">OpenCV</span>
+              <span class="chip">NumPy</span>
+              <span class="chip">CUDA</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="skill-cat-title">ML Techniques &amp; Architectures</h3>
+            <div class="chips">
+              <span class="chip chip-bold">Mamba / State-Space Models (SSMs)</span>
+              <span class="chip chip-bold">Vision Transformers</span>
+              <span class="chip chip-bold">Retrieval-Augmented Generation (RAG)</span>
+              <span class="chip">Contrastive Learning</span>
+              <span class="chip">LLM Fine-Tuning &amp; INT8 Quantization</span>
+              <span class="chip">Bayesian Optimization</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="skill-cat-title">Systems &amp; Backend</h3>
+            <div class="chips">
+              <span class="chip chip-bold">ARM NEON SIMD</span>
+              <span class="chip">Flask</span>
+              <span class="chip">MLOps Pipelines</span>
+              <span class="chip">FAISS</span>
+              <span class="chip">Docker</span>
+              <span class="chip">MySQL</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3 class="skill-cat-title">Developer Tools</h3>
+            <div class="chips">
+              <span class="chip chip-bold">Git</span>
+              <span class="chip">LaTeX</span>
+              <span class="chip">Postman</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Responsibilities & Extra-Curriculars -->
+        <div class="extra-split" style="margin-top: 36px;">
+          <div class="extra-box">
+            <h3 class="extra-title">Positions of Responsibility</h3>
+            <ul class="extra-list">
+              <li><strong>Student Companion | ISCP, IIT Bombay</strong>: Mentored 5 students in academics, social, and
+                extracurricular activities for holistic well-being.</li>
+              <li><strong>Technical Team Member | AACL 2025, IIT Bombay</strong>: Supported technical execution of 5-day
+                international conference.</li>
+            </ul>
+          </div>
+
+          <div class="extra-box">
+            <h3 class="extra-title">Achievements &amp; Hobbies</h3>
+            <ul class="extra-list">
+              <li><strong>3rd District Rank</strong> in Class 12th CBSE Board Examinations; qualified <strong>JEE
+                  Advanced</strong>.</li>
+              <li><strong>100% in Mathematics</strong> in CBSE Boards (2018); solved <strong>500+ problems on
+                  LeetCode</strong>.</li>
+              <li><strong>Hobbies</strong>: Gym, Reading, Badminton, Cooking, Cricket, Expressive Drawing, Chess &amp;
+                learning to play the Guitar.</li>
             </ul>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Experience & Research Section -->
-    <section class="experience-section" id="experience">
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
       <div class="section-container">
-        <span class="section-tag">Timeline</span>
-        <h2 class="section-title">Research & Work Experience</h2>
-        
-        <div class="timeline">
-          <!-- Item 1 -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content glass-card">
-              <span class="timeline-date">Research Assistant | 2024 — Present</span>
-              <h3 class="timeline-role">KCDH Lab, IIT Bombay</h3>
-              <p class="timeline-subtitle">Ontology-Aware Clinical RAG System (PHFI Collaboration)</p>
-              <ul class="bullet-list">
-                <li>Architected a multi-agent ontology-aware Retrieval-Augmented Generation (RAG) system for tobacco cessation clinical guidelines.</li>
-                <li>Created specialized agents for context-aware extraction, ontology semantic chunking, and completeness validation.</li>
-                <li>Developed a 7-factor boundary scoring algorithm for semantic chunking, raising guideline retrieval coherence to 85%+.</li>
-                <li>Fused dense vector embeddings with graph database traversals, generating relationship-aware query expansion mechanisms.</li>
-              </ul>
-            </div>
-          </div>
 
-          <!-- Item 2 -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content glass-card">
-              <span class="timeline-date">Lead Deep Learning Dev | 2024 — 2025</span>
-              <h3 class="timeline-role">KCDH Lab, IIT Bombay</h3>
-              <p class="timeline-subtitle">Lightweight State-Space Model for Neurovascular Segmentation</p>
-              <ul class="bullet-list">
-                <li>Designed a lightweight Mamba state-space model containing 1.68 million parameters (36× smaller than standard U-Net).</li>
-                <li>Applied the model to segment temporal intracranial arteries in DIAS & DSCA medical imaging datasets.</li>
-                <li>Achieved 82.93% mean Dice (max 93.61%), matching U-Net segmentation performance with a fraction of the compute footprint.</li>
-                <li>Demonstrated processing efficiency for variable-length 1024×1024 medical frame sequences.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content glass-card">
-              <span class="timeline-date">Model Engineer (Ongoing) | MeitY Sponsored</span>
-              <h3 class="timeline-role">Bhashini Speech-to-Speech Machine Translation</h3>
-              <p class="timeline-subtitle">National Language Translation Mission, MeitY, Govt. of India | Guide: Prof. Pushpak Bhattacharyya</p>
-              <ul class="bullet-list">
-                <li>Contributing to state-of-the-art speech translation model training and validation.</li>
-                <li>Evaluating translations across critical Indian language pairs: English-Hindi, English-Marathi, and Hindi-Marathi.</li>
-                <li>Enhancing alignment mappings and fine-tuning phoneme translations for regional translation services.</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content glass-card">
-              <span class="timeline-date">R&D researcher | 2024 — 2025</span>
-              <h3 class="timeline-role">LLM Bias Diagnosis Frameworks</h3>
-              <p class="timeline-subtitle">IIT Bombay | Guide: Prof. Pushpak Bhattacharyya</p>
-              <ul class="bullet-list">
-                <li><strong>R&D 1: Bias Detection using RAG</strong>: Programmed a retrieval framework using Phi-3-mini and FAISS over the Social Bias Inference Corpus (SBIC). Achieved 60.4% bias classification accuracy on RedditBias, showing a 10% gain over the baseline.</li>
-                <li><strong>R&D 2: Intersectional Bias Detection</strong>: Designed "BiasRetriever," a retriever-based framework utilizing biased/unbiased triplets. Built and open-sourced Indic-Intersect and Western-Intersect datasets containing 7,404 curated paragraphs.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects-section" id="projects">
-      <div class="section-container">
-        <span class="section-tag">Portfolio</span>
-        <h2 class="section-title">Selected Projects</h2>
-        
-        <div class="projects-grid grid-3">
-          <!-- Featured GPU Kernel Project -->
-          <div class="project-card glass-card" style="border: 1px solid oklch(var(--accent-primary-dark-raw) / 0.5); background: linear-gradient(135deg, rgba(var(--card-bg-dark-raw), 0.9), rgba(var(--accent-primary-dark-raw), 0.05));">
-            <div class="project-icon">⚡</div>
-            <h3 class="project-name" style="color: oklch(var(--accent-primary-dark-raw));">Triton GPU Kernel Suite</h3>
-            <p class="project-description">
-              High-throughput custom Triton kernels targeting 3D medical volume loss functions and row-wise activations. Features a <strong>Fused Soft-Dice Loss</strong> delivering <strong>3.09x speedup</strong> via SRAM caching, 2D block grid partitioning, and lock-free <code>tl.atomic_add</code> reductions.
+        <div class="contact-box">
+          <div class="contact-header">
+            <h2 class="contact-heading">Get in Touch</h2>
+            <p class="contact-lead">
+              Open to AI research collaborations, systems engineering roles, graduate fellowships, and academic
+              inquiries.
             </p>
-            <div class="project-tags">
-              <span>Triton</span>
-              <span>CUDA</span>
-              <span>PyTorch ATen</span>
-              <span>Kernel Fusion</span>
-              <span>A100 Benchmark</span>
-            </div>
-            <div style="margin-top: 16px; display: flex; gap: 12px;">
-              <a href="gpu-kernels.html" class="btn primary-btn" style="padding: 6px 14px; font-size: 0.82rem;">Live Interactive Showcase →</a>
-              <a href="https://github.com/vennyvirtuoso/triton-kernels" target="_blank" class="btn secondary-btn" style="padding: 6px 14px; font-size: 0.82rem;">GitHub Repo</a>
-            </div>
           </div>
 
-          <!-- Project 1 -->
-          <div class="project-card glass-card">
-            <div class="project-icon">🔍</div>
-            <h3 class="project-name">Multi-Hop QA & Reasoning</h3>
-            <p class="project-description">
-              Infused LightRAG structures with GPT-4o context chains, implementing a self-prompted chain-of-thought framework with 6 reasoning paths. Increased Exact Match (EM) scores by 2% on HotpotQA and 2Wiki datasets, and automated Indic-language text processing via iNLTK.
-            </p>
-            <div class="project-tags">
-              <span>LightRAG</span>
-              <span>GPT-4o</span>
-              <span>CoT</span>
-              <span>iNLTK</span>
+          <div class="contact-channels">
+            <div class="channel-card">
+              <span class="channel-icon">📧</span>
+              <div class="channel-info">
+                <span class="channel-label">Direct Email</span>
+                <span class="channel-val">vijendra9753@gmail.com</span>
+              </div>
+              <button type="button" class="btn-copy-email copy-email-btn" data-email="vijendra9753@gmail.com">
+                Copy Email
+              </button>
             </div>
-          </div>
 
-          <!-- Project 2 -->
-          <div class="project-card glass-card">
-            <div class="project-icon">👁️</div>
-            <h3 class="project-name">Medical Image AutoML Pipeline</h3>
-            <p class="project-description">
-              Created an AutoML optimized Vision-Transformer (ViT) pipeline for multi-modal medical classification. Delivered a 6.7% average accuracy and AUC gain across several MedMNIST benchmarks compared to traditional ResNet and DenseNet models.
-            </p>
-            <div class="project-tags">
-              <span>Vision Transformer</span>
-              <span>AutoML</span>
-              <span>MedMNIST</span>
-              <span>PyTorch</span>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card glass-card">
-            <div class="project-icon">📈</div>
-            <h3 class="project-name">Subset Selection for LLM Tuning</h3>
-            <p class="project-description">
-              Formulated a utility-diversity balanced subset selection framework for mathematical domain adaptation. Defined a novel Chain-of-Thought (CoT) difficulty metric combining confidence divergence and symbolic complexity. Tuned Phi-3 on only 600 samples to achieve 41% accuracy on GSM8K.
-            </p>
-            <div class="project-tags">
-              <span>Tuning</span>
-              <span>Submodular Greedy</span>
-              <span>GSM8K</span>
-              <span>Phi-3</span>
-            </div>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="project-card glass-card">
-            <div class="project-icon">🫁</div>
-            <h3 class="project-name">Region-Grounded BLIP-2 VQA</h3>
-            <p class="project-description">
-              Engineered an Anatomy-Aware Q-Former to resolve visual object hallucinations in Medical Visual Question Answering (VQA). Added a custom Multi-Head Anatomy Attention block and a Gated Fusion Unit to map visual queries to clinical spatial coordinates.
-            </p>
-            <div class="project-tags">
-              <span>BLIP-2</span>
-              <span>Anatomy Attention</span>
-              <span>Medical VQA</span>
-              <span>Attention</span>
-            </div>
-          </div>
-
-          <!-- Project 5 -->
-          <div class="project-card glass-card">
-            <div class="project-icon">🍃</div>
-            <h3 class="project-name">AQI Guardian Air Quality</h3>
-            <p class="project-description">
-              Developed a scalable Flask backend serving real-time air quality metrics across metro cities. Engineered custom BeautifulSoup scraping modules with request throttling, IP rotation thresholds, and anti-scraping CAPTCHA bypasses.
-            </p>
-            <div class="project-tags">
-              <span>Flask</span>
-              <span>BeautifulSoup</span>
-              <span>APIs</span>
-              <span>Scraping</span>
-            </div>
-          </div>
-
-          <!-- Project 6 -->
-          <div class="project-card glass-card">
-            <div class="project-icon">🗺️</div>
-            <h3 class="project-name">Safarnama Storytelling Platform</h3>
-            <p class="project-description">
-              Co-founded storiesbysafarnama.com, a commercial storytelling platform enabling users to build personalized timelines and joint memory timelines. Handled product design, architecture, payment gateways, and Nginx deployment.
-            </p>
-            <div class="project-tags">
-              <span>Product Architecture</span>
-              <span>UX Design</span>
-              <span>Nginx</span>
-              <span>Payment Gateways</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills-section" id="skills">
-      <div class="section-container">
-        <span class="section-tag">Competencies</span>
-        <h2 class="section-title">Technical Expertise</h2>
-        
-        <div class="skills-wrapper grid-2">
-          <!-- Skill Category 1 -->
-          <div class="skill-category glass-card">
-            <h3>Programming & Scripting Languages</h3>
-            <div class="skill-tags">
-              <span class="skill-tag-item">Python</span>
-              <span class="skill-tag-item">C</span>
-              <span class="skill-tag-item">C++</span>
-              <span class="skill-tag-item">Bash Scripting</span>
-              <span class="skill-tag-item">HTML & CSS</span>
-            </div>
-          </div>
-
-          <!-- Skill Category 2 -->
-          <div class="skill-category glass-card">
-            <h3>Tools, Libraries, & Frameworks</h3>
-            <div class="skill-tags">
-              <span class="skill-tag-item">PyTorch</span>
-              <span class="skill-tag-item">Hugging Face</span>
-              <span class="skill-tag-item">FAISS</span>
-              <span class="skill-tag-item">OpenCV</span>
-              <span class="skill-tag-item">NumPy</span>
-              <span class="skill-tag-item">CUDA</span>
-              <span class="skill-tag-item">cvxpy</span>
-              <span class="skill-tag-item">Nginx</span>
-            </div>
-          </div>
-
-          <!-- Skill Category 3 -->
-          <div class="skill-category glass-card">
-            <h3>Core Domains & Competencies</h3>
-            <div class="skill-tags">
-              <span class="skill-tag-item">Artificial Intelligence</span>
-              <span class="skill-tag-item">Machine Learning</span>
-              <span class="skill-tag-item">Deep Learning (DL)</span>
-              <span class="skill-tag-item">Natural Language Processing (NLP)</span>
-              <span class="skill-tag-item">LLM Fine-Tuning</span>
-              <span class="skill-tag-item">Optimization Algorithms</span>
-              <span class="skill-tag-item">GPU Computing</span>
-            </div>
-          </div>
-
-          <!-- Skill Category 4 -->
-          <div class="skill-category glass-card">
-            <h3>Databases & Miscellaneous</h3>
-            <div class="skill-tags">
-              <span class="skill-tag-item">MySQL</span>
-              <span class="skill-tag-item">Docker</span>
-              <span class="skill-tag-item">Postman</span>
-              <span class="skill-tag-item">Git</span>
-              <span class="skill-tag-item">LaTeX</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section class="publications-section" id="publications">
-      <div class="section-container">
-        <span class="section-tag">Research</span>
-        <h2 class="section-title">Publications & Pre-prints</h2>
-        
-        <div class="publication-card glass-card">
-          <div class="pub-badge">Pre-print</div>
-          <div class="pub-details">
-            <h3 class="pub-title">Subset Selection for Fine-Tuning: A Utility-Diversity Balanced Approach for Mathematical Domain Adaptation</h3>
-            <p class="pub-authors">Kotecha M, <strong>Vaishya VK</strong>, Gautam S, Racha S.</p>
-            <p class="pub-citation">arXiv:2505.01523</p>
-            <div class="pub-actions">
-              <a href="https://arxiv.org/abs/2505.01523" target="_blank" rel="noopener" class="btn text-btn">
-                Read on arXiv
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
+            <div class="channel-links">
+              <a href="https://github.com/vennyvirtuoso" target="_blank" rel="noopener" class="link-btn">
+                GitHub: github.com/vennyvirtuoso ↗
+              </a>
+              <a href="https://linkedin.com/in/vijendra-kumar-vaishya" target="_blank" rel="noopener" class="link-btn">
+                LinkedIn: in/vijendra-kumar-vaishya ↗
               </a>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Achievements Section -->
-    <section class="achievements-section" id="achievements">
-      <div class="section-container">
-        <span class="section-tag">Highlights</span>
-        <h2 class="section-title">Key Accomplishments</h2>
-        
-        <div class="achievements-grid grid-3">
-          <!-- Achievement 1 -->
-          <div class="achievement-card glass-card">
-            <div class="ach-num">99.59%</div>
-            <h3 class="ach-title">GATE CSE Percentile</h3>
-            <p class="ach-desc">Secured 99.59 Percentile in Graduate Aptitude Test in Engineering for Computer Science.</p>
-          </div>
-
-          <!-- Achievement 2 -->
-          <div class="achievement-card glass-card">
-            <div class="ach-num">98.55%</div>
-            <h3 class="ach-title">GATE DA Percentile</h3>
-            <p class="ach-desc">Secured 98.55 Percentile in Graduate Aptitude Test in Engineering for Data Science & AI.</p>
-          </div>
-
-          <!-- Achievement 3 -->
-          <div class="achievement-card glass-card">
-            <div class="ach-num">500+</div>
-            <h3 class="ach-title">LeetCode Solved</h3>
-            <p class="ach-desc">Solved over 500 algorithm problems, showcasing expertise in complex data structures and algorithmic efficiency.</p>
-          </div>
-
-          <!-- Achievement 4 -->
-          <div class="achievement-card glass-card">
-            <div class="ach-num">100%</div>
-            <h3 class="ach-title">Mathematics Score</h3>
-            <p class="ach-desc">Scored perfect 100% marks in Mathematics in the CBSE Board Examinations.</p>
-          </div>
-
-          <!-- Achievement 5 -->
-          <div class="achievement-card glass-card">
-            <div class="ach-num">Rank 3</div>
-            <h3 class="ach-title">District Board Exam</h3>
-            <p class="ach-desc">Secured 3rd Rank in the entire district for the CBSE Class 12th Board examinations.</p>
-          </div>
-
-          <!-- Achievement 6 -->
-          <div class="achievement-card glass-card">
-            <div class="ach-num">JEE</div>
-            <h3 class="ach-title">Qualified</h3>
-            <p class="ach-desc">Successfully qualified the prestigious JEE Advanced examination for engineering admissions.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-      <div class="section-container">
-        <span class="section-tag">Contact</span>
-        <h2 class="section-title">Get In Touch</h2>
-        
-        <div class="contact-grid grid-2">
-          <!-- Info Details -->
-          <div class="contact-info">
-            <h3 class="contact-subtitle">Let's discuss research collaborations or engineering roles</h3>
-            <p class="contact-desc">
-              I am open to research collaborations, R&D consultations, or engineering opportunities in AI, NLP, and Deep Learning. Drop me a line!
+            <p class="office-note">
+              🏛️ <strong>Research Office:</strong> Department of Computer Science &amp; Engineering, IIT Bombay, Powai,
+              Mumbai 400076, India
             </p>
-            
-            <ul class="contact-details-list">
-              <li>
-                <div class="contact-icon-wrapper">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div class="contact-detail-text">
-                  <span class="detail-label">Email</span>
-                  <a href="mailto:vijendra9753@gmail.com" class="detail-value">vijendra9753@gmail.com</a>
-                </div>
-              </li>
-              <li>
-                <div class="contact-icon-wrapper">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                </div>
-                <div class="contact-detail-text">
-                  <span class="detail-label">LinkedIn</span>
-                  <a href="https://www.linkedin.com/in/vennyvirtuoso/" target="_blank" rel="noopener" class="detail-value">Vijendra Kumar</a>
-                </div>
-              </li>
-              <li>
-                <div class="contact-icon-wrapper">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div class="contact-detail-text">
-                  <span class="detail-label">Location</span>
-                  <span class="detail-value">Indian Institute of Technology Bombay, Mumbai, India</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Contact Form -->
-          <div class="contact-form-wrapper glass-card">
-            <form id="contact-form" class="contact-form">
-              <div class="form-group">
-                <label for="form-name">Name</label>
-                <input type="text" id="form-name" name="name" required placeholder="John Doe">
-              </div>
-              <div class="form-group">
-                <label for="form-email">Email</label>
-                <input type="email" id="form-email" name="email" required placeholder="john@example.com">
-              </div>
-              <div class="form-group">
-                <label for="form-message">Message</label>
-                <textarea id="form-message" name="message" rows="5" required placeholder="Hi Vijendra, I'd love to chat about..."></textarea>
-              </div>
-              <button type="submit" class="btn primary-btn submit-btn">
-                <span>Send Message</span>
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18" class="send-icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-              </button>
-              <div class="form-status" id="form-status" aria-live="polite"></div>
-            </form>
           </div>
         </div>
+
+        <footer class="site-footer">
+          <div class="footer-copy">
+            © 2026 Vijendra Kumar Vaishya · M.S. by Research Candidate @ IIT Bombay (Roll: 24M2133)
+          </div>
+          <div class="footer-links">
+            <a href="#about">Back to top ↑</a>
+          </div>
+        </footer>
+
       </div>
     </section>
+
   </main>
 
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="footer-container">
-      <div class="footer-left">
-        <span class="footer-logo">VK.</span>
-        <p>&copy; 2026 Vijendra Kumar. All rights reserved.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#hero">Back to Top</a>
-        <a href="https://www.linkedin.com/in/vennyvirtuoso/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:vijendra9753@gmail.com">Email</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Contact Form & Animations Script -->
-  <script src="./index.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>
