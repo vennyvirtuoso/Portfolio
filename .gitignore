@@ -30,4 +30,8 @@ IMG_*.PNG
 IMG_*.png
 assets/*_old.pdf
 
+# GitHub Profile repository directory
+github-profile/
+
+
 
