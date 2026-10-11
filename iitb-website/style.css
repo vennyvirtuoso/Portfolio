@@ -1,0 +1,240 @@
+/* ==============================================================================
+   Academic Homepage Stylesheet — Vijendra Kumar Vaishya (IIT Bombay)
+   Clean, minimalist, high-legibility academic design
+   ============================================================================== */
+
+:root {
+  --bg-color: #fdfdfd;
+  --text-main: #222222;
+  --text-secondary: #555555;
+  --text-muted: #777777;
+  --link-color: #0b5394;
+  --link-hover: #063259;
+  --border-color: #e5e5e5;
+  --accent: #003366; /* IITB navy */
+  --card-bg: #f8f9fa;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121316;
+    --text-main: #e2e4e8;
+    --text-secondary: #a0a6b0;
+    --text-muted: #717882;
+    --link-color: #58a6ff;
+    --link-hover: #79b8ff;
+    --border-color: #272a30;
+    --accent: #58a6ff;
+    --card-bg: #181a1f;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 24px 64px 24px;
+}
+
+/* Header & Profile */
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.profile-photo-wrapper {
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
+.profile-name {
+  margin: 0 0 6px 0;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.profile-title {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin: 0 0 4px 0;
+}
+
+.profile-affiliation {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0 0 14px 0;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.92rem;
+}
+
+.profile-links a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.profile-links a:hover {
+  text-decoration: underline;
+  color: var(--link-hover);
+}
+
+/* Section Headings */
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 36px 0 16px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-color);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+p {
+  margin: 0 0 14px 0;
+  color: var(--text-secondary);
+}
+
+/* Lists */
+ul {
+  margin: 0 0 20px 0;
+  padding-left: 20px;
+  color: var(--text-secondary);
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Academic Item Block */
+.item-block {
+  margin-bottom: 20px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.item-title {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.item-time {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.item-subtitle {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.item-desc {
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Course List Grid */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.course-item {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  background-color: var(--card-bg);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.course-code {
+  font-weight: 600;
+  color: var(--text-main);
+  margin-right: 6px;
+}
+
+/* Contact / Footer */
+.footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer a {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .profile-links {
+    justify-content: center;
+  }
+  .item-header {
+    flex-direction: column;
+  }
+}

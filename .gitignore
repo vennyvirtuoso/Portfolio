@@ -32,6 +32,6 @@ assets/*_old.pdf
 
 # GitHub Profile repository directory
 github-profile/
-
-
+# Local deployment scripts
+deploy_iitb.sh
 
