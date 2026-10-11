@@ -34,4 +34,5 @@ assets/*_old.pdf
 github-profile/
 # Local deployment scripts
 deploy_*.sh
+*.zip
 
