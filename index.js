@@ -392,17 +392,16 @@ document.addEventListener("DOMContentLoaded", () => {
     <span class="term-card-title">Vijendra Kumar Vaishya</span>
     <span class="term-card-tag">Profile Bio</span>
   </div>
-  <div class="term-card-inst">M.S. by Research Candidate · Computer Science &amp; Engineering · IIT Bombay (Roll: 24M2133)</div>
+  <div class="term-card-inst">Graduate Researcher · Computer Science &amp; Engineering · IIT Bombay</div>
   <div class="term-card-desc">
-    Graduate researcher in the <strong>CFILT Lab</strong> (Center for Indian Language Technology) at IIT Bombay, advised by <strong>Prof. Pushpak Bhattacharyya</strong>. 
-    Focused on linear-time Mamba state-space models for 3D medical temporal sequences, contrastive intersectional bias retrieval in LLM vector spaces, clinical ontology RAG architectures, and bare-metal C++17 ARM NEON inference optimization.
+    I am a graduate researcher in Computer Science at IIT Bombay working across the machine learning stack—from foundational model design and representation alignment to low-level systems execution.
     <br><br>
-    Graduated with an 8.06 CPI in Information Technology from Jabalpur Engineering College (RGPV), qualified the JEE Advanced examination, scored 100% in Mathematics in Class 12 Boards (District 3rd Rank), and solved over 500 algorithmic challenges on LeetCode.
+    My research focuses on making language and vision systems both reliable and efficient: advancing state-space models (Mamba SSMs) for spatiotemporal sequence modeling (WACV 2027), contrastive intersectional bias detection in language representations (EACL 2027), clinical conversational ontologies, and bare-metal C++17 ARM NEON inference optimization.
   </div>
   <div class="term-card-meta">
-    <span class="term-metric-pill">CPI: 8.9 / 10 @ IIT Bombay</span>
-    <span class="term-metric-pill">84.2× C++17 NEON FFN Speedup</span>
-    <span class="term-metric-pill">0.7801 DSCA Dice Score</span>
+    <span class="term-metric-pill">Accepted @ WACV 2027</span>
+    <span class="term-metric-pill">EACL 2027 (Under Review)</span>
+    <span class="term-metric-pill">IIT Bombay CSE</span>
   </div>
 </div>
 `;
@@ -519,23 +518,23 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="term-card-list">
   <div class="term-card">
     <div class="term-card-top">
-      <span class="term-card-title">Beyond Single-Axis Fairness: Learning to Detect Intersectional Biases</span>
-      <span class="term-card-tag">EACL 2027 (Under Review)</span>
-    </div>
-    <div class="term-card-inst">Vijendra Kumar Vaishya, Nihar Ranjan Sahoo, Pushpak Bhattacharyya</div>
-    <div class="term-card-desc">
-      Introduced <strong>BiasRetriever</strong>, a contrastively trained retriever using canonical single-axis stereotype embeddings. Boosted <strong>Jaccard score by 18 points</strong> over the strongest LLM baseline across disjoint corpora.
-    </div>
-  </div>
-
-  <div class="term-card">
-    <div class="term-card-top">
       <span class="term-card-title">MIST: Mamba-based Integrated Spatio-Temporal Model for DSA Segmentation</span>
       <span class="term-card-tag" style="background:rgba(16,185,129,0.15);color:#34d399;border-color:rgba(16,185,129,0.3);">Accepted at WACV 2027</span>
     </div>
     <div class="term-card-inst">Vijendra Kumar Vaishya, Viraj Singh Gaur, Amruth Sagar, Swapna Sourav Rout, Kshitij Sharad Jadhav</div>
     <div class="term-card-desc">
       Dual-branch spatio-temporal architecture with <strong>CrossSTF Cross-Attention Fusion</strong>. Achieved a <strong>Dice score of 0.7801</strong> on independent DSCA benchmark without retraining.
+    </div>
+  </div>
+
+  <div class="term-card">
+    <div class="term-card-top">
+      <span class="term-card-title">Beyond Single-Axis Fairness: Learning to Detect Intersectional Biases</span>
+      <span class="term-card-tag">EACL 2027 (Under Review)</span>
+    </div>
+    <div class="term-card-inst">Vijendra Kumar Vaishya, Nihar Ranjan Sahoo, Pushpak Bhattacharyya</div>
+    <div class="term-card-desc">
+      Introduced <strong>BiasRetriever</strong>, a contrastively trained retriever using canonical single-axis stereotype embeddings. Boosted <strong>Jaccard score by 18 points</strong> over the strongest LLM baseline across disjoint corpora.
     </div>
   </div>
 

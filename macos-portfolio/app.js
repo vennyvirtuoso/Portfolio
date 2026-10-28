@@ -286,11 +286,15 @@
 
 ---
 
+I am a graduate researcher in Computer Science at IIT Bombay working across the machine learning stack—from foundational model design and representation alignment to low-level systems execution.
+
+My research focuses on making language and vision systems both reliable and efficient:
+
 ### 🔬 Core Research Focus
-- **Intersectional Fairness & Bias Detection in LLMs**:
-  Formulated multi-axis demographic bias detection as continuous retrieval over composed stereotype spaces (*Under Review, EACL 2027*).
 - **Spatio-Temporal Mamba (MIST)**:
   Selective State-Space Models (SSMs) & Cross-Attention Fusion for DSA intracranial vessel segmentation (*Accepted at WACV 2027*, **0.7801 Dice**).
+- **Intersectional Fairness & Bias Detection in LLMs**:
+  Formulated multi-axis demographic bias detection as continuous retrieval over composed stereotype spaces (*Under Review, EACL 2027*).
 - **Clinical Knowledge Graphs (KCDH Lab & PHFI)**:
   Ontology-aware conversational segmentation over 6,900 medical concepts with 33k+ edges (**58% Recall@3**, **0.497 MRR**).
 - **NLTM-Bhashini SSMT (MeitY, Govt. of India)**:
@@ -438,19 +442,22 @@
         <div style="max-width: 650px; line-height: 1.65; color: #e2e8f0; font-family: var(--font-sans);">
           <div style="font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 4px;">Vijendra Kumar Vaishya 👋</div>
           <div style="font-size: 13.5px; color: #38bdf8; margin-bottom: 16px;">M.S. by Research Scholar · Computer Science & Engineering @ IIT Bombay</div>
-          <p style="font-size: 13px; color: #94a3b8;">
-            AI Researcher & Systems Engineer focusing on <strong>Intersectional Bias in Large Language Models</strong>, <strong>State-Space Models (Mamba) for Spatio-Temporal Video</strong>, and <strong>Bare-Metal C++17 ARM NEON SIMD inference engines</strong>.
+          <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 8px;">
+            I am a graduate researcher in Computer Science at IIT Bombay working across the machine learning stack—from foundational model design and representation alignment to low-level systems execution.
+          </p>
+          <p style="font-size: 13.5px; color: #cbd5e1; margin-bottom: 14px;">
+            My research focuses on making language and vision systems both reliable and efficient:
           </p>
           <div style="display:flex; gap:10px; margin: 16px 0;">
-            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600;">IIT BOMBAY (CPI 8.9)</span>
-            <span style="background:rgba(16,185,129,0.15); color:#10b981; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600;">EACL '27 & WACV '27</span>
+            <span style="background:rgba(56,189,248,0.15); color:#38bdf8; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600;">IIT BOMBAY</span>
+            <span style="background:rgba(16,185,129,0.15); color:#10b981; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600;">WACV '27 & EACL '27</span>
             <span style="background:rgba(244,63,94,0.15); color:#f43f5e; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600;">500+ LEETCODE</span>
           </div>
           <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 20px 0;">
           <h4 style="color:#fff; font-size: 14px; margin-bottom: 8px;">📚 Peer-Reviewed Research</h4>
           <ul style="padding-left: 18px; font-size: 12.5px; color: #94a3b8; line-height: 1.8;">
-            <li><strong>Beyond Single-Axis Fairness: Learning to Detect Intersectional Biases</strong> (EACL '27 Under Review) — Built <code>BiasRetriever</code>, boosting Jaccard score by +18 points.</li>
             <li><strong>MIST: Mamba-based Spatio-Temporal Model for Vessel Segmentation</strong> (Accepted at WACV 2027) — Achieved 0.7801 Dice with zero retraining.</li>
+            <li><strong>Beyond Single-Axis Fairness: Learning to Detect Intersectional Biases</strong> (EACL '27 Under Review) — Built <code>BiasRetriever</code>, boosting Jaccard score by +18 points.</li>
             <li><strong>Clinical Conversational Chatbot for Tobacco Cessation</strong> (KCDH Lab & PHFI) — 6,900 concepts, 33k+ edges, 58% Recall@3.</li>
             <li><strong>NLTM-Bhashini Machine Translation</strong> (MeitY) — 85.05% test F1 on Marathi MWE labeling.</li>
           </ul>
@@ -546,16 +553,15 @@
     about: () => `
 <div>
   <strong>Vijendra Kumar Vaishya</strong><br>
-  M.S. by Research Candidate in CSE at IIT Bombay (CPI: <strong>8.9 / 10</strong>).<br>
-  B.Tech in Information Technology from Jabalpur Engineering College (CPI: 8.06).<br>
-  Solved <strong>500+ LeetCode problems</strong>; qualified JEE Advanced; 3rd District Rank in Class 12th Board.
+  I am a graduate researcher in Computer Science at IIT Bombay working across the machine learning stack—from foundational model design and representation alignment to low-level systems execution.<br><br>
+  My research focuses on making language and vision systems both reliable and efficient.
 </div>
 `,
     research: () => `
 <div>
   <div style="color:#38bdf8; font-weight:600;">Selected Research @ IIT Bombay:</div>
-  1. <strong>BiasRetriever</strong> (EACL '27 Under Review) — Intersectional bias detection (+18 Jaccard gain).<br>
-  2. <strong>MIST SSM</strong> (Accepted at WACV 2027) — Spatio-temporal Mamba for vessel segmentation (0.7801 Dice).<br>
+  1. <strong>MIST SSM</strong> (Accepted at WACV 2027) — Spatio-temporal Mamba for vessel segmentation (0.7801 Dice).<br>
+  2. <strong>BiasRetriever</strong> (EACL '27 Under Review) — Intersectional bias detection (+18 Jaccard gain).<br>
   3. <strong>Clinical Ontologies</strong> (KCDH Lab & PHFI) — Tobacco cessation decision graph (58% Recall@3).<br>
   4. <strong>NLTM-Bhashini</strong> (MeitY) — Speech-to-speech translation annotation platform (85.05% F1).
 </div>
