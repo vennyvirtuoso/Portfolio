@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vijendra Kumar Vaishya · macOS Portfolio</title>
+  <meta name="description"
+    content="Interactive macOS Desktop Portfolio of Vijendra Kumar Vaishya — M.S. by Research in CSE at IIT Bombay. AI Researcher & Systems Engineer.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Starry Cosmic Background Canvas -->
+  <canvas id="wallpaper-canvas"></canvas>
+  <div class="desktop-ambient" aria-hidden="true"></div>
+
+  <!-- macOS Top Menu Bar -->
+  <header class="top-menu-bar" role="banner">
+    <div class="menu-left">
+      <span class="apple-icon" id="apple-menu-btn" title="About This Mac"></span>
+      <span class="active-app-name" id="menu-active-app">Code</span>
+      <span class="menu-item">File</span>
+      <span class="menu-item">Edit</span>
+      <span class="menu-item">Selection</span>
+      <span class="menu-item">View</span>
+      <span class="menu-item">Go</span>
+      <span class="menu-item">Window</span>
+      <span class="menu-item">Help</span>
+    </div>
+
+    <div class="menu-center">
+      <div class="monogram" title="Vijendra Kumar Vaishya">vk</div>
+    </div>
+
+    <div class="menu-right">
+      <div class="menu-status-item" title="Wi-Fi: Connected to IITB-Campus">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+      </div>
+      <div class="menu-status-item" title="Battery: 100%">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"></rect><line x1="22" y1="11" x2="22" y2="13"></line><line x1="6" y1="11" x2="6" y2="13"></line><line x1="10" y1="11" x2="10" y2="13"></line><line x1="14" y1="11" x2="14" y2="13"></line></svg>
+      </div>
+      <div class="menu-status-item" title="Spotlight Search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      <div class="clock-display" id="menu-clock">Sun 25 Oct 11:45 PM</div>
+    </div>
+  </header>
+
+  <!-- Desktop Workspace Area -->
+  <main class="desktop-space" id="desktop-space">
+
+    <!-- ======================================================================
+         WINDOW 1: VS Code IDE Simulator (Code)
+         ====================================================================== -->
+    <div class="window vscode-window focused" id="win-vscode" style="left: 80px; top: 45px; z-index: 100;">
+      <div class="window-header">
+        <div class="traffic-lights">
+          <button class="traffic-btn close" title="Close" data-action="close"></button>
+          <button class="traffic-btn minimize" title="Minimize" data-action="minimize"></button>
+          <button class="traffic-btn maximize" title="Maximize" data-action="maximize"></button>
+        </div>
+        <div class="window-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#38bdf8"><path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .32 8.7l3.71 3.3-3.71 3.3a1 1 0 0 0 .007 1.439l1.322 1.202a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.94-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zM18 17.65L9.64 12 18 6.35v11.3z"/></svg>
+          <span>portfolio — Visual Studio Code</span>
+        </div>
+        <div class="window-controls-dummy"></div>
+      </div>
+
+      <div class="window-body">
+        <div class="vscode-layout">
+          <!-- Activity Bar -->
+          <div class="vscode-activitybar">
+            <div class="activity-icons">
+              <div class="activity-icon active" title="Explorer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+              </div>
+              <div class="activity-icon" title="Search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+              <div class="activity-icon" title="Source Control">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>
+              </div>
+              <div class="activity-icon" title="Run & Debug">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+            </div>
+            <div class="activity-icon" title="Settings">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+          </div>
+
+          <!-- Sidebar Explorer -->
+          <div class="vscode-sidebar">
+            <div class="sidebar-title">Explorer</div>
+            <ul class="file-tree">
+              <li class="tree-folder-title">▼ PORTFOLIO</li>
+              <li class="tree-file active" data-file="readme">
+                <span>📄</span> <span>README.md</span>
+              </li>
+              <li class="tree-folder-title">▼ research</li>
+              <li class="tree-file" data-file="bias">
+                <span>🐍</span> <span>bias_retriever.py</span>
+              </li>
+              <li class="tree-file" data-file="mamba">
+                <span>🐍</span> <span>mamba_ssm.py</span>
+              </li>
+              <li class="tree-file" data-file="clinical">
+                <span>🐍</span> <span>clinical_ontology.py</span>
+              </li>
+              <li class="tree-folder-title">▼ systems</li>
+              <li class="tree-file" data-file="swiglu">
+                <span>⚡</span> <span>swiglu_neon.cpp</span>
+              </li>
+              <li class="tree-file" data-file="bayes">
+                <span>🐍</span> <span>gp_bayesian.py</span>
+              </li>
+              <li class="tree-folder-title">▼ profile</li>
+              <li class="tree-file" data-file="skills">
+                <span>⚙️</span> <span>skills.json</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Editor Pane -->
+          <div class="vscode-editor-pane">
+            <div class="editor-tabs">
+              <div class="editor-tab active" data-tab="readme">📄 README.md</div>
+              <div class="editor-tab" data-tab="bias">🐍 bias_retriever.py</div>
+              <div class="editor-tab" data-tab="swiglu">⚡ swiglu_neon.cpp</div>
+              <div class="editor-tab" data-tab="skills">⚙️ skills.json</div>
+            </div>
+
+            <div class="editor-breadcrumb">
+              <span>portfolio</span> <span>›</span> <span id="editor-active-crumb">README.md</span>
+            </div>
+
+            <div class="editor-main-stage">
+              <!-- Code Content View -->
+              <div class="code-content-view" id="code-content-view">
+                <!-- Dynamically populated code / markdown preview -->
+              </div>
+
+              <!-- Interactive 3D Hanging Lanyard ID Badge -->
+              <div class="badge-stage" id="badge-stage">
+                <div class="lanyard-strap"></div>
+                <div class="lanyard-clip">
+                  <div class="lanyard-ring"></div>
+                </div>
+
+                <div class="iitb-id-card" id="iitb-id-card" title="Click to flip card">
+                  <div class="card-hologram-sheen"></div>
+                  
+                  <div class="card-header-iitb">
+                    <div class="card-inst-name">INDIAN INSTITUTE OF TECHNOLOGY BOMBAY</div>
+                    <div class="card-sub-inst">STUDENT IDENTITY CARD · CSE DEPARTMENT</div>
+                  </div>
+
+                  <div class="card-photo-box">
+                    <img src="assets/profile.jpg" alt="Vijendra Kumar Vaishya" onerror="this.src='assets/vijendra_profile.png'">
+                  </div>
+
+                  <div class="card-name-title">
+                    <div class="card-holder-name">VIJENDRA KUMAR VAISHYA</div>
+                    <div class="card-holder-role">M.S. by Research Scholar</div>
+                  </div>
+
+                  <div class="card-meta-table">
+                    <div class="card-meta-row">
+                      <span class="meta-lbl">ROLL NO:</span>
+                      <span class="meta-val">24M2133</span>
+                    </div>
+                    <div class="card-meta-row">
+                      <span class="meta-lbl">CPI:</span>
+                      <span class="meta-val" style="color:#38bdf8;">8.9 / 10</span>
+                    </div>
+                    <div class="card-meta-row">
+                      <span class="meta-lbl">LAB:</span>
+                      <span class="meta-val">CFILT & KCDH</span>
+                    </div>
+                    <div class="card-meta-row">
+                      <span class="meta-lbl">ADVISOR:</span>
+                      <span class="meta-val">Prof. Pushpak B.</span>
+                    </div>
+                  </div>
+
+                  <div class="card-bottom-footer">
+                    <span style="font-size: 8px; color: #64748b; font-family: monospace;">||||| | |||| ||| ||||</span>
+                    <span style="font-size: 8px; color: #10b981; font-weight: 600;">VALID 2024-2027</span>
+                  </div>
+                </div>
+
+                <div class="badge-hint">✦ Hover to tilt in 3D · Click to flip</div>
+              </div>
+            </div>
+
+            <!-- VS Code Status Bar -->
+            <div class="vscode-statusbar">
+              <div class="status-left">
+                <span>main*</span>
+                <span>0 errors, 0 warnings</span>
+              </div>
+              <div class="status-right">
+                <span>Ln 1, Col 1</span>
+                <span>Spaces: 2</span>
+                <span>UTF-8</span>
+                <span id="editor-lang-indicator">Markdown</span>
+                <span>IITB Workstation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         WINDOW 2: iTerm2 Terminal (Terminal)
+         ====================================================================== -->
+    <div class="window terminal-window" id="win-terminal" style="left: 140px; top: 100px; z-index: 90; display: none;">
+      <div class="window-header">
+        <div class="traffic-lights">
+          <button class="traffic-btn close" title="Close" data-action="close"></button>
+          <button class="traffic-btn minimize" title="Minimize" data-action="minimize"></button>
+          <button class="traffic-btn maximize" title="Maximize" data-action="maximize"></button>
+        </div>
+        <div class="window-title">
+          <span>vijendra@iitb-cse: ~/portfolio (zsh)</span>
+        </div>
+        <div class="window-controls-dummy"></div>
+      </div>
+
+      <div class="window-body">
+        <div class="terminal-body" id="terminal-body">
+          <div class="neofetch-stage">
+            <img src="assets/profile.jpg" alt="Vijendra Kumar Vaishya" class="neofetch-img" onerror="this.src='assets/vijendra_profile.png'">
+            <div class="neofetch-rows">
+              <div class="neofetch-user">vijendra@iitb-cse [M.S. Research Scholar]</div>
+              <div class="term-row"><span class="term-key">Host:</span><span class="term-val">Indian Institute of Technology Bombay (IIT Bombay)</span></div>
+              <div class="term-row"><span class="term-key">Degree:</span><span class="term-val">M.S. by Research in CSE · <strong>CPI: 8.9 / 10</strong></span></div>
+              <div class="term-row"><span class="term-key">Advisor:</span><span class="term-val">Prof. Pushpak Bhattacharyya (CFILT Lab)</span></div>
+              <div class="term-row"><span class="term-key">Research:</span><span class="term-val" style="color:var(--accent-blue);">Intersectional Bias (EACL '27) · Mamba SSM (WACV '27)</span></div>
+              <div class="term-row"><span class="term-key">Systems:</span><span class="term-val" style="color:#10b981;">Bare-Metal C++17 ARM NEON SIMD (84.2× FFN Engine)</span></div>
+              <div class="term-row"><span class="term-key">LeetCode:</span><span class="term-val">500+ Solved · Data Structures & Algorithms</span></div>
+              <div class="term-row"><span class="term-key">Uptime:</span><span class="term-val">24/7 Deep Learning, High Performance Systems</span></div>
+            </div>
+          </div>
+
+          <div id="terminal-output-history">
+            <div style="color:#94a3b8; margin-bottom:8px;">Type <span style="color:#38bdf8;">help</span> for available commands, or explore <span style="color:#38bdf8;">research</span> and <span style="color:#38bdf8;">systems</span>.</div>
+          </div>
+
+          <div class="cli-input-line">
+            <span class="cli-prompt">vijendra@iitb:~$</span>
+            <input type="text" class="cli-input" id="cli-input" autocomplete="off" spellcheck="false" autofocus>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         WINDOW 3: Overleaf / Academic Paper Reader (Research)
+         ====================================================================== -->
+    <div class="window research-window" id="win-research" style="left: 180px; top: 70px; z-index: 80; display: none;">
+      <div class="window-header">
+        <div class="traffic-lights">
+          <button class="traffic-btn close" title="Close" data-action="close"></button>
+          <button class="traffic-btn minimize" title="Minimize" data-action="minimize"></button>
+          <button class="traffic-btn maximize" title="Maximize" data-action="maximize"></button>
+        </div>
+        <div class="window-title">
+          <span>📄 research_papers.pdf — Academic Document Viewer</span>
+        </div>
+        <div class="window-controls-dummy"></div>
+      </div>
+
+      <div class="window-body">
+        <div class="paper-layout">
+          <h1 class="paper-title">Beyond Single-Axis Fairness: Learning to Detect Intersectional Biases</h1>
+          <div class="paper-authors">
+            <strong>Vijendra Kumar Vaishya</strong>, Nihar Ranjan Sahoo, Pushpak Bhattacharyya<br>
+            <em>Center for Indian Language Technology (CFILT), Department of CSE, IIT Bombay</em><br>
+            <span style="font-family: var(--font-sans); font-size: 11px; color:#0284c7; font-weight:600;">UNDER REVIEW · EACL 2027</span>
+          </div>
+
+          <div class="paper-abstract-box">
+            <strong>Abstract:</strong> Current bias mitigation architectures overwhelmingly evaluate demographic disparities across independent, isolated axes. We formulate intersectional bias detection as a high-dimensional retrieval problem over composed stereotype spaces, introducing <em>BiasRetriever</em>. Trained with contrastive objective functions over canonical single-axis anchors, our architecture boosts Jaccard similarity by <strong>+18 points</strong> over state-of-the-art LLM discriminators across out-of-domain evaluation splits.
+          </div>
+
+          <div class="paper-columns">
+            <div>
+              <div class="paper-section-head">1. Introduction & Formulation</div>
+              <p>
+                Societal stereotypes rarely manifest in isolation; rather, disparities compound across overlapping identity dimensions. While classification heads suffer severe sample scarcity for intersectional cohorts, continuous embedding alignment allows smooth interpolation between canonical demographic axes.
+              </p>
+              <div class="paper-section-head">2. Spatio-Temporal Mamba (MIST)</div>
+              <p>
+                In research accepted at <em>WACV 2027</em>, we tackle temporal medical video segmentation using selective State-Space Models (SSMs). Our Cross-Attention Fusion module (CrossSTF) fuses MinIP spatial priors with multi-scale sequence states, yielding a <strong>0.7801 Dice score</strong> on zero-shot cross-dataset evaluation.
+              </p>
+            </div>
+            <div>
+              <div class="paper-section-head">3. Clinical Knowledge Graphs (KCDH)</div>
+              <p>
+                In collaboration with the Public Health Foundation of India (PHFI), we engineered an ontology-aware segmentation pipeline for tobacco cessation across 6,900 clinical concepts with 33k+ edges, achieving <strong>58% Recall@3</strong> and <strong>0.497 MRR</strong> across patient diagnostic dialogues.
+              </p>
+              <div class="paper-section-head">4. NLTM-Bhashini (Govt. of India)</div>
+              <p>
+                Architected full-stack sequence tagging models for Marathi Multi-Word Expressions, scaling datasets from 4,260 to 13,900+ active clinical and colloquial annotations (85.05% F1).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         WINDOW 4: Scrapbook (About Me : The Scrapbook)
+         ====================================================================== -->
+    <div class="window scrapbook-window" id="win-scrapbook" style="left: 120px; top: 60px; z-index: 70; display: none;">
+      <div class="window-header">
+        <div class="traffic-lights">
+          <button class="traffic-btn close" title="Close" data-action="close"></button>
+          <button class="traffic-btn minimize" title="Minimize" data-action="minimize"></button>
+          <button class="traffic-btn maximize" title="Maximize" data-action="maximize"></button>
+        </div>
+        <div class="window-title">
+          <span>About Me : The Scrapbook</span>
+        </div>
+        <div class="window-controls-dummy"></div>
+      </div>
+
+      <div class="window-body">
+        <div class="scrapbook-canvas">
+          <div class="scrapbook-flow">
+            <!-- Hero Row -->
+            <div class="scrapbook-hero-row">
+              <div class="scrapbook-story-text">
+                <h3>meet Vijendra.</h3>
+                <p>
+                  Curious about deep mathematics, hardware limits, and how language models reason. 
+                  Scored <strong>100% in Mathematics</strong> in CBSE Boards, qualified <strong>JEE Advanced</strong>, and graduated with a B.Tech in IT from <strong>Jabalpur Engineering College</strong>.
+                </p>
+              </div>
+
+              <div class="polaroid-frame">
+                <img src="assets/profile.jpg" alt="Vijendra Kumar Vaishya" onerror="this.src='assets/vijendra_profile.png'">
+                <div class="polaroid-caption">IIT Bombay, 2024</div>
+              </div>
+            </div>
+
+            <!-- Milestone Card 1 -->
+            <div class="journey-tape-box">
+              <div class="washi-tape"></div>
+              <h4 style="margin: 0 0 6px 0; font-family: var(--font-serif); font-size: 18px; color:#0f172a;">
+                🏛️ The IIT Bombay Chapter (CPI: 8.9 / 10)
+              </h4>
+              <p style="margin:0; font-size: 13.5px; color:#475569; line-height: 1.6;">
+                Currently pursuing an <strong>M.S. by Research in Computer Science & Engineering</strong> under the guidance of <strong>Prof. Pushpak Bhattacharyya</strong> at the CFILT Lab. Focused on LLM fairness, State-Space Models (Mamba), and high-performance inference microkernels. Mentored 5 incoming graduate students as an <strong>ISCP Student Companion</strong>.
+              </p>
+            </div>
+
+            <!-- Milestone Card 2 -->
+            <div class="journey-tape-box">
+              <div class="washi-tape" style="background: rgba(56, 189, 248, 0.4);"></div>
+              <h4 style="margin: 0 0 6px 0; font-family: var(--font-serif); font-size: 18px; color:#0f172a;">
+                ⚡ Systems & Problem Solving
+              </h4>
+              <p style="margin:0; font-size: 13.5px; color:#475569; line-height: 1.6;">
+                Solved over <strong>500+ algorithmic challenges on LeetCode</strong>. Beyond theory, engineered bare-metal C++17 Transformer FFN engines with 8-wide ARM NEON microkernels achieving 37–84x speedups and INT8 quantization at 41.7 GFLOP/s.
+              </p>
+            </div>
+
+            <!-- Milestone Card 3: Beyond Code -->
+            <div class="journey-tape-box">
+              <div class="washi-tape" style="background: rgba(16, 185, 129, 0.4);"></div>
+              <h4 style="margin: 0 0 6px 0; font-family: var(--font-serif); font-size: 18px; color:#0f172a;">
+                🎸 Beyond the Terminal
+              </h4>
+              <p style="margin:0; font-size: 13.5px; color:#475569; line-height: 1.6;">
+                When not training neural models or profiling vector registers: avid gym enthusiast, chess player, expressive pencil sketcher, and learning to play acoustic guitar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         WINDOW 5: 3D Interactive Photo Globe / Gallery (Gallery)
+         ====================================================================== -->
+    <div class="window gallery-window" id="win-gallery" style="left: 160px; top: 90px; z-index: 60; display: none;">
+      <div class="window-header">
+        <div class="traffic-lights">
+          <button class="traffic-btn close" title="Close" data-action="close"></button>
+          <button class="traffic-btn minimize" title="Minimize" data-action="minimize"></button>
+          <button class="traffic-btn maximize" title="Maximize" data-action="maximize"></button>
+        </div>
+        <div class="window-title">
+          <span>3D Photo Sphere — Drag to Explore</span>
+        </div>
+        <div class="window-controls-dummy"></div>
+      </div>
+
+      <div class="window-body">
+        <div class="globe-viewport" id="globe-viewport">
+          <canvas id="globe-canvas"></canvas>
+          <div class="globe-overlay-hint">DRAG TO ROTATE 3D SPHERE · CLICK TO INSPECT</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ======================================================================
+       macOS Bottom Dock
+       ====================================================================== -->
+  <footer class="dock-container" id="dock" role="navigation" aria-label="macOS Dock">
+    
+    <!-- App 1: VS Code -->
+    <div class="dock-item running active" data-app="vscode" title="VS Code">
+      <div class="dock-tooltip">Code</div>
+      <div class="dock-icon-box" style="background: #1f2430;">
+        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="#38bdf8" d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .32 8.7l3.71 3.3-3.71 3.3a1 1 0 0 0 .007 1.439l1.322 1.202a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.94-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zM18 17.65L9.64 12 18 6.35v11.3z"/></svg>
+      </div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <!-- App 2: iTerm2 Terminal -->
+    <div class="dock-item" data-app="terminal" title="Terminal">
+      <div class="dock-tooltip">Terminal</div>
+      <div class="dock-icon-box" style="background: #0f172a; border: 1px solid rgba(255,255,255,0.15);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+      </div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <!-- App 3: Research Paper Reader -->
+    <div class="dock-item" data-app="research" title="Research Papers">
+      <div class="dock-tooltip">Research Papers</div>
+      <div class="dock-icon-box" style="background: linear-gradient(135deg, #0284c7, #0369a1);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      </div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <!-- App 4: Scrapbook -->
+    <div class="dock-item" data-app="scrapbook" title="Scrapbook">
+      <div class="dock-tooltip">About Me</div>
+      <div class="dock-icon-box" style="background: linear-gradient(135deg, #f43f5e, #fb7185);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+      </div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <!-- App 5: 3D Photo Globe -->
+    <div class="dock-item" data-app="gallery" title="3D Photo Globe">
+      <div class="dock-tooltip">3D Gallery</div>
+      <div class="dock-icon-box" style="background: linear-gradient(135deg, #8b5cf6, #a855f7);">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      </div>
+      <div class="dock-dot"></div>
+    </div>
+
+    <!-- Separator -->
+    <div class="dock-separator"></div>
+
+    <!-- Shortcut 1: Resume PDF -->
+    <a href="cv.pdf" target="_blank" class="dock-item" title="Download Resume">
+      <div class="dock-tooltip">Resume (PDF)</div>
+      <div class="dock-icon-box" style="background: #e11d48;">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+      </div>
+    </a>
+
+    <!-- Shortcut 2: GitHub -->
+    <a href="https://github.com/vennyvirtuoso" target="_blank" rel="noopener" class="dock-item" title="GitHub Profile">
+      <div class="dock-tooltip">GitHub</div>
+      <div class="dock-icon-box" style="background: #24292e;">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </div>
+    </a>
+
+    <!-- Shortcut 3: LinkedIn -->
+    <a href="https://www.linkedin.com/in/vijendra-kumar-vaishya/" target="_blank" rel="noopener" class="dock-item" title="LinkedIn Profile">
+      <div class="dock-tooltip">LinkedIn</div>
+      <div class="dock-icon-box" style="background: #0077b5;">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+      </div>
+    </a>
+
+    <!-- Shortcut 4: Email -->
+    <a href="mailto:vijendra@cse.iitb.ac.in" class="dock-item" title="Send Email">
+      <div class="dock-tooltip">Email (IITB)</div>
+      <div class="dock-icon-box" style="background: #ea4335;">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      </div>
+    </a>
+
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

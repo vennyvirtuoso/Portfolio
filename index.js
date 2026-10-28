@@ -531,7 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="term-card">
     <div class="term-card-top">
       <span class="term-card-title">MIST: Mamba-based Integrated Spatio-Temporal Model for DSA Segmentation</span>
-      <span class="term-card-tag">WACV 2027 (Under Review)</span>
+      <span class="term-card-tag" style="background:rgba(16,185,129,0.15);color:#34d399;border-color:rgba(16,185,129,0.3);">Accepted at WACV 2027</span>
     </div>
     <div class="term-card-inst">Vijendra Kumar Vaishya, Viraj Singh Gaur, Amruth Sagar, Swapna Sourav Rout, Kshitij Sharad Jadhav</div>
     <div class="term-card-desc">
@@ -1037,7 +1037,7 @@ EDUCATION:
   Aggregate: 96.00% (District Rank 3) | 100/100 in Mathematics | Qualified JEE Adv.
 
 RESEARCH & PUBLICATIONS:
-• MIST: Mamba Spatio-Temporal Model for DSA Segmentation (WACV 2027 Under Review)
+• MIST: Mamba Spatio-Temporal Model for DSA Segmentation (Accepted at WACV 2027)
 • BiasRetriever: Contrastive Intersectional Bias Evaluation (EACL 2027 Under Review)
 • NLTM-Bhashini: Active Learning Annotation Pipeline (13,900+ gold annotations)
 

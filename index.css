@@ -2486,6 +2486,7 @@ html.view-mode-terminal .terminal-window {
   font-family: var(--font-mono);
 }
 
+.badge-accepted { background: rgba(16, 185, 129, 0.16); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
 .badge-review   { background: rgba(168, 85, 247, 0.14); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25); }
 .badge-ongoing  { background: rgba(56, 189, 248, 0.14); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); }
 .badge-preprint { background: rgba(245, 158, 11, 0.14); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.25); }
